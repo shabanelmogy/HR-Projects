@@ -1,0 +1,16 @@
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.vbprojAssemblyReference.cache
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.frm_DashBoard.resources
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.frm_users.resources
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.Login_Form.resources
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.frm_Mainform.resources
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.Resources.resources
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.vbproj.GenerateResource.cache
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.vbproj.CoreCompileInputs.cache
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\bin\Debug\HRHOME.exe.config
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\bin\Debug\HRHOME.exe
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\bin\Debug\HRHOME.pdb
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\bin\Debug\HRHOME.xml
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.exe
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.xml
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.pdb
+G:\My Projects\GitHupProjects\HR-Projects\HRHOME\HRHOME\obj\Debug\HRHOME.Frm_EmployeeScreen.resources
