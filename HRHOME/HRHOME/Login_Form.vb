@@ -26,6 +26,7 @@ Public Class Login_Form
         If table.Rows.Count <= 0 Then
             MessageBox.Show("خطأ فى اسم المستخدم او كلمة السر")
         Else
+            frm_Mainform.Show()
             frm_Mainform.Enabled = True
             Me.Hide()
             frm_Mainform.Label3.Text = table.Rows(0)(1)
@@ -36,10 +37,6 @@ Public Class Login_Form
             End If
         End If
         conn.Close()
-    End Sub
-
-    Private Sub login_form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_Login.Click

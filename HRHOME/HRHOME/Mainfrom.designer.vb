@@ -357,7 +357,6 @@ Partial Class frm_Mainform
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximizeBox = False
         Me.Name = "frm_Mainform"
         Me.Text = "الشاشة الرئيسية"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

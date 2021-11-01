@@ -57,7 +57,7 @@ Public Class Frm_EmployeeScreen
 
     End Sub
 
-    Private Sub Txt_Jobid_KeyDown(sender As Object, e As KeyEventArgs) Handles Txt_Jobid.KeyDown
+    Private Sub Txt_Jobid_KeyDown(sender As Object, e As KeyEventArgs) Handles Txt_Jobid.KeyDown, TextBox4.KeyDown, TextBox3.KeyDown, TextBox2.KeyDown
         If e.Alt And e.KeyCode = Keys.A Then
             Cbo_Job.SelectedValue = Txt_Jobid.Text
         End If
@@ -125,16 +125,18 @@ Public Class Frm_EmployeeScreen
         '=====================================
         'البحث 
         '=====================================
-        Select Case columntext
-            Case "Manualid"
-                intcolumn = dv.Find(Convert.ToInt32(Txt_Search.Text))
+        If Txt_Search.Text <> "" Then
+            Select Case columntext
+                Case "Manualid"
+                    intcolumn = dv.Find(Convert.ToInt32(Txt_Search.Text))
                 'intcolumn = dv.Find(CInt(Txt_Search.Text))
 
-            Case "empname"
-                intcolumn = dv.Find(Convert.ToString(Txt_Search.Text))
-                'intcolumn = dv.Find(CType(Txt_Search.Text, String))
+                Case "empname"
+                    intcolumn = dv.Find(Convert.ToString(Txt_Search.Text))
+                    'intcolumn = dv.Find(CType(Txt_Search.Text, String))
 
-        End Select
+            End Select
+        End If
         '=====================================
         'اختبار القيم الموجودة والغير موجودة
         '=====================================
@@ -183,7 +185,7 @@ Public Class Frm_EmployeeScreen
         Txt_Jobid.DataBindings.Clear()
         DateTimePicker1.DataBindings.Clear()
         Cbo_Job.DataBindings.Clear()
-        Txt_A1.DataBindings.Clear()
+
 
         Txt_ManualId.DataBindings.Add("text", dv, "manualid")
         TxtName.DataBindings.Add("text", dv, "empname")
@@ -192,7 +194,7 @@ Public Class Frm_EmployeeScreen
         Txt_Jobid.DataBindings.Add("text", dv, "job")
         DateTimePicker1.DataBindings.Add("value", dv, "indate")
         Cbo_Job.DataBindings.Add("selectedvalue", dv, "job")
-        Txt_A1.DataBindings.Add("text", dv, "A1")
+
     End Sub
 
     Sub showposition()
@@ -208,7 +210,7 @@ Public Class Frm_EmployeeScreen
         Cbo_Dep.Text = ""
         Cbo_Div.Text = ""
         Cbo_branch.Text = ""
-        Txt_A1.Text = ""
+
 
         Cbo_Job.SelectedIndex = 0
         Txt_Jobid.Text = Cbo_Job.SelectedValue
@@ -227,12 +229,12 @@ Public Class Frm_EmployeeScreen
             Exit Sub
         End If
 
-        If IsNumeric(Txt_A1.Text) = False Then
-            Txt_A1.Select()
-            Txt_A1.SelectAll()
-            MsgBox("قيمة الراتب غير صالحة")
-            Exit Sub
-        End If
+        'If IsNumeric(Txt_A1.Text) = False Then
+        '    Txt_A1.Select()
+        '    Txt_A1.SelectAll()
+        '    MsgBox("قيمة الراتب غير صالحة")
+        '    Exit Sub
+        'End If
 
         dt = New DataTable
         da = New SqlDataAdapter("select name from empinfo where name = '" & TxtName.Text & "'", con)
@@ -248,15 +250,15 @@ Public Class Frm_EmployeeScreen
 
 
         cmd = New SqlCommand("if not exists (select manualid from empinfo where manualid=@manualid)
-                              begin insert into empinfo (manualid,name,job,indate,a1) 
-                              select @manualid,@name,@job,@indate,@a1 where @manualid > 0 and @name <> '' end ", con)
+                              begin insert into empinfo (manualid,name,job,indate) 
+                              select @manualid,@name,@job,@indate where @manualid > 0 and @name <> '' end ", con)
 
         With cmd.Parameters
             .AddWithValue("@manualid", Txt_ManualId.Text).DbType = DbType.Int32
             .AddWithValue("@name", TxtName.Text).DbType = DbType.String
             .AddWithValue("@job", Txt_Jobid.Text).DbType = DbType.Int32
             .AddWithValue("@indate", DateTimePicker1.Value).DbType = DbType.DateTime
-            .AddWithValue("@a1", Txt_A1.Text).DbType = DbType.Double
+
         End With
 
         'للتحقق من غلق اى اتصال مفتوح مسبقا
@@ -276,7 +278,7 @@ Public Class Frm_EmployeeScreen
     Private Sub Btn_Update_Click(sender As Object, e As EventArgs) Handles Btn_Update.Click
         'حفظ موقع السجل فى متغير
         Dim posit As Integer = cur.Position
-        cmd = New SqlCommand("update empinfo set name=@name,job=@job,indate=@indate,a1=@a1
+        cmd = New SqlCommand("update empinfo set name=@name,job=@job,indate=@indate
                               where manualid=@manualid", con)
 
         With cmd.Parameters
@@ -284,7 +286,7 @@ Public Class Frm_EmployeeScreen
             .AddWithValue("@name", TxtName.Text).DbType = DbType.String
             .AddWithValue("@job", Txt_Jobid.Text).DbType = DbType.Int32
             .AddWithValue("@indate", DateTimePicker1.Value).DbType = DbType.DateTime
-            .AddWithValue("@A1", Txt_A1.Text).DbType = DbType.Double
+
         End With
 
         'للتحقق من غلق اى اتصال مفتوح مسبقا
@@ -342,11 +344,27 @@ Public Class Frm_EmployeeScreen
         Txt_Jobid.DataBindings.Clear()
         DateTimePicker1.DataBindings.Clear()
         Cbo_Job.DataBindings.Clear()
-        Txt_A1.DataBindings.Clear()
+
 
     End Sub
 
-    Private Sub Txt_Jobid_TextChanged(sender As Object, e As EventArgs) Handles Txt_Jobid.TextChanged
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        tab_Control1.Show()
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 

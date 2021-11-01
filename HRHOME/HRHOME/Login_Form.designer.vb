@@ -133,6 +133,7 @@ Partial Class Login_Form
         Me.Controls.Add(Me.btn_Login)
         Me.Controls.Add(Me.Txt_password)
         Me.Controls.Add(Me.Label2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Login_Form"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login_Form"

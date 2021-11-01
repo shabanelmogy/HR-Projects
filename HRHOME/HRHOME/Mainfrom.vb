@@ -6,8 +6,6 @@
 
     Private Sub frm_Mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Start()
-        Me.Enabled = False
-        Login_Form.Show()
     End Sub
 
     Private Sub btn_Users_Click(sender As Object, e As EventArgs) Handles btn_Users.Click
@@ -36,5 +34,7 @@
             .BringToFront()
             .Show()
         End With
+        'Frm_EmployeeScreen.TabControl1.Hide()
+
     End Sub
 End Class
